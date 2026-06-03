@@ -4,15 +4,15 @@ class Solution {
         for (int i : nums) {
             set.add(i);
         }
-        // System.out.println(set);
-
         int longest = 0;
         int curCount = 0;
+        int currentNum;
         for (int cur :  set) {
             // check if it begniging of element
             if (!set.contains(cur - 1)) {
+                currentNum = cur;
                 curCount = 1;
-                while (set.contains(++cur)) curCount++;
+                while (set.contains(++currentNum)) curCount++;
             }
             longest = Math.max(longest, curCount);
         }
