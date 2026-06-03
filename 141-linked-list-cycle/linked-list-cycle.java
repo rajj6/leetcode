@@ -14,14 +14,11 @@ public class Solution {
         if (head == null || head.next == null) return false;
         ListNode s = head;
         ListNode f = head;
-        while (true) {
-            // if(s == f) return true;
+        while (f != null && f.next != null) {
             s = s.next;
-            if(f != null) f = f.next;
-            if(f != null) f = f.next;
+            f = f.next.next;
             if(s == f) return true;
-            if (s == null || f == null) return false;
         }
-    
+        return false;
     }
 }
