@@ -25,7 +25,7 @@ class Solution {
                 char lob = stack.get(stack.size() - 1);
                 // System.out.println("lob: "  + lob);
                 char op = getOp(c);
-                System.out.println("op: "  + op);
+                // System.out.println("op: "  + op);
                 if (lob == op) {
                     // System.out.println("same hai");
                     stack.remove(stack.size() - 1);
