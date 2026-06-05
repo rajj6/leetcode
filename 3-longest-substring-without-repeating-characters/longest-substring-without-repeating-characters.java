@@ -11,7 +11,6 @@ class Solution {
             } else {
                 if (seen.contains(c)) {
                     // part of i to j seq
-                    
                     while (chars[i] != c) {
                         seen.remove(chars[i]);
                         i++;
@@ -20,7 +19,7 @@ class Solution {
                         i++;
                         continue;
                     }
-                    seen.add(c);
+                    // seen.add(c);
                 } else {
                     seen.add(c);
                 }
