@@ -15,11 +15,7 @@ class Solution {
                         seen.remove(chars[i]);
                         i++;
                     }
-                    if (chars[i] == c) {
-                        i++;
-                        continue;
-                    }
-                    // seen.add(c);
+                    i++;
                 } else {
                     seen.add(c);
                 }
