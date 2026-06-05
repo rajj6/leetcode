@@ -1,11 +1,10 @@
 class Solution {
     public boolean isValid(String s) {
-        List<Character> stack = new LinkedList<>();
-
+        Deque<Character> stack = new ArrayDeque<>();
         for (char c : s.toCharArray()) {
             // System.out.println("for C: " + c);
             if (stack.isEmpty()) {
-                stack.add(c);
+                stack.push(c);
                 // System.out.println("stack: "  + stack);
                 continue;
             }
@@ -13,7 +12,7 @@ class Solution {
             // if it is opening bracket then put in stack
             if (c == '(' || c == '{' || c == '[') {
                 // System.out.println("Opening B: "  + c);
-                stack.add(c);
+                stack.push(c);
                 // System.out.println("stack: "  + stack);
                 continue;
             }
@@ -22,13 +21,13 @@ class Solution {
             if (c == ')' || c == '}' || c == ']') {
                 // System.out.println("Closing B: "  + c);
                 // peek element of stack which is last open bracket
-                char lob = stack.get(stack.size() - 1);
+                char lob = stack.peek();
                 // System.out.println("lob: "  + lob);
                 char op = getOp(c);
                 // System.out.println("op: "  + op);
                 if (lob == op) {
                     // System.out.println("same hai");
-                    stack.remove(stack.size() - 1);
+                    stack.pop();
                 } else {
                     return false;
                 }
