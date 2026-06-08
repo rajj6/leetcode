@@ -1,32 +1,29 @@
 class Solution {
     public boolean isPalindrome(String s) {
-        // Step 1: Lowercase the entire string to normalize case variations
-        char[] chars = s.toLowerCase().toCharArray();
-        
         int i = 0;
-        int j = chars.length - 1;
+        int j = s.length() - 1;
         
-        // Step 2: Use two pointers meeting in the middle
         while (i < j) {
-            // Skip non-alphanumeric characters from the left
-            if (!Character.isLetterOrDigit(chars[i])) {
+            char head = s.charAt(i);
+            char tail = s.charAt(j);
+            
+            // Skip non-alphanumeric characters from left
+            if (!Character.isLetterOrDigit(head)) {
                 i++;
-                continue;
-            }
-            // Skip non-alphanumeric characters from the right
-            if (!Character.isLetterOrDigit(chars[j])) {
+            } 
+            // Skip non-alphanumeric characters from right
+            else if (!Character.isLetterOrDigit(tail)) {
                 j--;
-                continue;
+            } 
+            // Characters are ready to be compared
+            else {
+                // Convert to lowercase on the fly during comparison
+                if (Character.toLowerCase(head) != Character.toLowerCase(tail)) {
+                    return false;
+                }
+                i++;
+                j--;
             }
-            
-            // Compare the characters at both bounds
-            if (chars[i] != chars[j]) {
-                return false;
-            }
-            
-            // Move both pointers inward
-            i++;
-            j--;
         }
         
         return true;
