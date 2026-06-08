@@ -1,26 +1,24 @@
 class Solution {
     public boolean isAnagram(String s, String t) {
-        // Step 1: If lengths don't match, they cannot be anagrams
-        if (s.length() != t.length()) {
+        if(s.length() != t.length()) {
             return false;
         }
-        
-        // Step 2: Use a single bucket array to track relative character counts
-        int[] charCounts = new int[26];
-        
-        // Step 3: Increment for string s, decrement for string t
-        for (int i = 0; i < s.length(); i++) {
-            charCounts[s.charAt(i) - 'a']++;
-            charCounts[t.charAt(i) - 'a']--;
+        char[] ss = s.toCharArray();
+        char[] ts = t.toCharArray();
+        int i = 0;
+        int[] hashS = new int[26];
+        int[] hashT = new int[26];
+        while (i < ss.length) {
+            hashS[(int) ss[i] - 'a']++;
+            hashT[(int) ts[i] - 'a']++;
+            i++;
         }
         
-        // Step 4: If any bucket is not zero, the frequencies did not balance out
-        for (int count : charCounts) {
-            if (count != 0) {
+        for(int j =0; j < 26; j++) {
+            if(hashS[j] != hashT[j]) {
                 return false;
             }
         }
-        
         return true;
     }
 }
