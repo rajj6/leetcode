@@ -1,24 +1,27 @@
 class Solution {
     public boolean isAnagram(String s, String t) {
-        if(s.length() != t.length()) {
+        if (s.length() != t.length()) {
             return false;
         }
-        char[] ss = s.toCharArray();
-        char[] ts = t.toCharArray();
-        int i = 0;
-        int[] hashS = new int[26];
-        int[] hashT = new int[26];
-        while (i < ss.length) {
-            hashS[(int) ss[i] - 'a']++;
-            hashT[(int) ts[i] - 'a']++;
-            i++;
+        
+        // Convert both to primitive arrays upfront (One-time allocation)
+        char[] sChars = s.toCharArray();
+        char[] tChars = t.toCharArray();
+        
+        int[] charCounts = new int[26];
+        
+        // Pure primitive array tracking—blazing fast loop execution
+        for (int i = 0; i < sChars.length; i++) {
+            charCounts[sChars[i] - 'a']++;
+            charCounts[tChars[i] - 'a']--;
         }
         
-        for(int j =0; j < 26; j++) {
-            if(hashS[j] != hashT[j]) {
+        for (int count : charCounts) {
+            if (count != 0) {
                 return false;
             }
         }
+        
         return true;
     }
 }
