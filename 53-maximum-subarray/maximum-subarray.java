@@ -7,6 +7,7 @@ class Solution {
             cur = nums[i];
             curSum += cur;
             if (cur > curSum) {
+                // EVEN AFTER ADDING THE CURRENT NUMBER IF SUM IS REDUSING THEN STAR A NEW SEQ
                 curSum = cur;
             }
             max = Math.max(max, curSum);
