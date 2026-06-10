@@ -37,7 +37,7 @@ class Solution {
                 j++;
             }
             seen.add(c);
-            max = Math.max(max, seen.size());
+            max = Math.max(max, i - j + 1);
         }
         return max;
     }
