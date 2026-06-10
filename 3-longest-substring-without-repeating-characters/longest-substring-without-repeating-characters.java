@@ -30,8 +30,9 @@ class Solution {
         int max = 0;
         char[] chars = s.toCharArray();
         int j = 0;
+        char c;
         for (int i = 0; i < chars.length; i++) {
-            char c = chars[i];
+            c = chars[i];
             while (seen.contains(c)) {
                 seen.remove(chars[j]);
                 j++;
