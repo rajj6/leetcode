@@ -8,7 +8,7 @@ class Solution {
             // Odd number
             l = i;
             r = i;
-            System.out.println("l: " + l + " r: " + r);
+            
             while (l >= 0 && r < n && s.charAt(l) == s.charAt(r)) {
                 if (pal.length() < r-l+1) {
                     pal = s.substring(l, r+1);
@@ -20,7 +20,7 @@ class Solution {
             // even number
             l = i;
             r = i+1;
-            System.out.println("l: " + l + " r: " + r);
+            
             while (l >= 0 && r < n && s.charAt(l) == s.charAt(r)) {
                 if (pal.length() < r-l+1) {
                     pal = s.substring(l, r+1);
