@@ -4,20 +4,26 @@ class Solution {
         int n = s.length();
         for (int i = 0; i < n; i++) {
             // Count palindrom of odd length
-            int left = i, right = i;
-            while (left >= 0 && right < n && s.charAt(left) == s.charAt(right)) {
-                count++;
-                left--;
-                right++;
-            }
+            count += countP(s, i, i);
             // Count palindrom of even length
-            left = i;
-            right = i+1;
-            while (left >= 0 && right < n && s.charAt(left) == s.charAt(right)) {
-                count++;
-                left--;
-                right++;
-            }
+            count += countP(s, i, i + 1);
+            // left = i;
+            // right = i+1;
+            // while (left >= 0 && right < n && s.charAt(left) == s.charAt(right)) {
+            //     count++;
+            //     left--;
+            //     right++;
+            // }
+        }
+        return count;
+    }
+
+    int countP(String s, int left, int right) {
+        int count = 0;
+        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
+            count++;
+            left--;
+            right++;
         }
         return count;
     }
