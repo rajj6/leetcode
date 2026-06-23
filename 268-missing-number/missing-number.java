@@ -14,14 +14,19 @@ class Solution {
         }
         return 0;
         */
-        // try sorting in 1 loop :: for index i if i != nums[i]
-        Arrays.sort(nums);
-        int i = 0;
-        if(nums[i] != 0) return 0;
-        while (i < nums.length-1) {
-            if(nums[i]+1 != nums[i+1]) return nums[i] + 1;
-            i++;
-        }
-        return nums[i]  + 1;
+        // try sorting in 1 loop then finding the next element
+        // Arrays.sort(nums);
+        // int i = 0;
+        // if(nums[i] != 0) return 0;
+        // while (i < nums.length-1) {
+        //     if(nums[i]+1 != nums[i+1]) return nums[i] + 1;
+        //     i++;
+        // }
+        // return nums[i]  + 1;
+
+        // Maths sum of series 0 to n -1 = n * (n-1) /2
+        int  sum = 0;
+        for (int i : nums) sum += i;
+        return (nums.length*(nums.length+1))/2 - sum;
     }
 }
