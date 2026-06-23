@@ -24,9 +24,15 @@ class Solution {
         // }
         // return nums[i]  + 1;
 
-        // Maths sum of series 0 to n -1 = n * (n-1) /2
-        int  sum = 0;
+        // Maths sum of series 0 to n  = n * (n+1) / 2
+        // int  sum = 0;
+        // for (int i : nums) sum += i;
+        // return (nums.length*(nums.length+1))/2 - sum;
+
+        long sum = 0;
         for (int i : nums) sum += i;
-        return (nums.length*(nums.length+1))/2 - sum;
+        long nSum = 0;
+        for (int i = 1; i <= nums.length; i++) nSum += i;
+        return (int) (nSum - sum);
     }
 }
