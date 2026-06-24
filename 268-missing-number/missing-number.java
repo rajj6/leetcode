@@ -29,10 +29,10 @@ class Solution {
         // for (int i : nums) sum += i;
         // return (nums.length*(nums.length+1))/2 - sum;
 
-        long sum = 0;
-        for (int i : nums) sum += i;
-        long nSum = 0;
-        for (int i = 1; i <= nums.length; i++) nSum += i;
-        return (int) (nSum - sum);
+        long sum = nums.length;
+        // for (int i : nums) sum += i;
+        // long nSum = 0;
+        for (int i = 0; i < nums.length; i++) sum = sum + i - nums[i];
+        return (int) (sum);
     }
 }
