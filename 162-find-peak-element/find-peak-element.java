@@ -6,20 +6,31 @@ class Solution {
         //         return i;
         //     }
         // }
-        int n = nums.length;
-        // if (n == 1 || nums[0] > nums[1]) return 0;
-        // if (nums[n-1] > nums[n-2]) return n-1;
-        int left = 0, right = n - 1;
-        while (left <= right) {
+        
+        // int n = nums.length;
+        // int left = 0, right = n - 1;
+        // while (left <= right) {
+        //     int mid = (left + right) / 2;
+        //     if ((mid == 0 || nums[mid - 1] < nums[mid]) && (mid == n - 1 || nums[mid] > nums[mid + 1])) {
+        //         return mid;
+        //     } else if (mid == 0 || nums[mid - 1] < nums[mid]) {
+        //         left = mid+1;
+        //     } else {
+        //         right = mid - 1;
+        //     }
+        // }
+        // return -1;
+
+        // int n = nums.length;
+        int left = 0, right = nums.length - 1;
+        while (left < right) {
             int mid = (left + right) / 2;
-            if ((mid == 0 || nums[mid - 1] < nums[mid]) && (mid == n - 1 || nums[mid] > nums[mid + 1])) {
-                return mid;
-            } else if (mid == 0 || nums[mid - 1] < nums[mid]) {
-                left = mid+1;
+            if (nums[mid] < nums[mid +1]) {
+                left = mid + 1;
             } else {
-                right = mid - 1;
+                right = mid;
             }
         }
-        return -1;
+        return left;
     }
 }
