@@ -17,7 +17,7 @@ class Solution {
     public boolean flipEquiv(TreeNode root1, TreeNode root2) {
         if (root1 == null && root2 == null) return true;
         if (root1 == null || root2 == null) return false;
-        if (root1.val != root2.val) return false;
+        // if (root1.val != root2.val) return false;
         // if (isSame(root1.left, root2.left) && isSame(root1.right, root2.right)) {
         //     // No swap at this level
         //     return flipEquiv(root1.left, root2.left) && flipEquiv(root1.right, root2.right);
@@ -27,12 +27,12 @@ class Solution {
         // } else {
         //     return false;
         // }
-        return (flipEquiv(root1.left, root2.left) && flipEquiv(root1.right, root2.right)) || (flipEquiv(root1.left, root2.right) && flipEquiv(root1.right, root2.left));
+        return (root1.val == root2.val) && ((flipEquiv(root1.left, root2.left) && flipEquiv(root1.right, root2.right)) || (flipEquiv(root1.left, root2.right) && flipEquiv(root1.right, root2.left)));
     }
 
-    public boolean isSame(TreeNode node1, TreeNode node2) {
-        if (node1 == null && node2 == null) return true;
-        if (node1 == null || node2 == null) return false;
-        return node1.val == node2.val;
-    }
+    // public boolean isSame(TreeNode node1, TreeNode node2) {
+    //     if (node1 == null && node2 == null) return true;
+    //     if (node1 == null || node2 == null) return false;
+    //     return node1.val == node2.val;
+    // }
 }
