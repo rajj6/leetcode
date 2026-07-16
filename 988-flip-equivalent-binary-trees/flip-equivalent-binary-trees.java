@@ -18,15 +18,16 @@ class Solution {
         if (root1 == null && root2 == null) return true;
         if (root1 == null || root2 == null) return false;
         if (root1.val != root2.val) return false;
-        if (isSame(root1.left, root2.left) && isSame(root1.right, root2.right)) {
-            // No swap at this level
-            return flipEquiv(root1.left, root2.left) && flipEquiv(root1.right, root2.right);
-        } else if (isSame(root1.left, root2.right) && isSame(root1.right, root2.left)){
-            // Swap hua hai
-            return flipEquiv(root1.left, root2.right) && flipEquiv(root1.right, root2.left);
-        } else {
-            return false;
-        }
+        // if (isSame(root1.left, root2.left) && isSame(root1.right, root2.right)) {
+        //     // No swap at this level
+        //     return flipEquiv(root1.left, root2.left) && flipEquiv(root1.right, root2.right);
+        // } else if (isSame(root1.left, root2.right) && isSame(root1.right, root2.left)){
+        //     // Swap hua hai
+        //     return flipEquiv(root1.left, root2.right) && flipEquiv(root1.right, root2.left);
+        // } else {
+        //     return false;
+        // }
+        return (flipEquiv(root1.left, root2.left) && flipEquiv(root1.right, root2.right)) || (flipEquiv(root1.left, root2.right) && flipEquiv(root1.right, root2.left));
     }
 
     public boolean isSame(TreeNode node1, TreeNode node2) {
